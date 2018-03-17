@@ -16,7 +16,7 @@ public class controller : MonoBehaviour {
 		text = true;
 		text2speech.GetComponent<text2speech> ().speech = "hello ebin. how are you feeling today";
 	}
-	void fixedUpdate()
+	void Update()
 	{
 		if (text) {
 			if (text2speech.GetComponent<text2speech> ().ended) {
@@ -30,7 +30,7 @@ public class controller : MonoBehaviour {
 		}
 		if(speech)
 		{
-			if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("how") && speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("are") && speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("you")) {
+			if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("how are you")) {
 				Destroy (speech2text);
 				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
 				text = true;
