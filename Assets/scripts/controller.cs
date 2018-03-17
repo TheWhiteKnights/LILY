@@ -37,6 +37,41 @@ public class controller : MonoBehaviour {
 				speech = false;
 				text2speech.GetComponent<text2speech> ().speech = "I am Feeling good. Thanks";
 			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("what are you")) {
+				Destroy (speech2text);
+				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
+				text = true;
+				speech = false;
+				text2speech.GetComponent<text2speech> ().speech = "Well, I'm not a person. I'm a virtual assistant.";
+			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("how old are you")) {
+				Destroy (speech2text);
+				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
+				text = true;
+				speech = false;
+				text2speech.GetComponent<text2speech> ().speech = "I prefer not to answer with a number. I know I'm young";
+			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("you") && speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("annoying")) {
+				Destroy (speech2text);
+				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
+				text = true;
+				speech = false;
+				text2speech.GetComponent<text2speech> ().speech = "I don't mean to. I'll ask my developers to make me less annoying.";
+			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("you") &&( speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("good")||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("beautiful") ||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("nice"))) {
+				Destroy (speech2text);
+				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
+				text = true;
+				speech = false;
+				text2speech.GetComponent<text2speech> ().speech = "Why, thank you";
+			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("who") && speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("boss")||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("is") ||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("nice")){
+				Destroy (speech2text);
+				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
+				text = true;
+				speech = false;
+				text2speech.GetComponent<text2speech> ().speech = "Why, thank you";
+			}
 			return;
 		}
 	}

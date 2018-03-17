@@ -120,7 +120,7 @@ public class text2speech : MonoBehaviour
             Destroy(audioObject, clip.length);
 
             _synthesizeTested = true;
-			wait (clip.length);
+			wait (clip.length+10);
 			ended = true;
         }
     }
