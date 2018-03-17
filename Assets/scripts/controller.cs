@@ -27,12 +27,12 @@ public class controller : MonoBehaviour {
 				text = false;
 			}
 		}
-		//if(false)
-		//{
-		//	Destroy (speech2text);
-		//	text2speech = Instantiate(Resources.Load("text2speech")) as GameObject; 
-		//	text2speech.GetComponent<text2speech> ().speech = "I am Feeling good. Thanks";
-		//	speech2text = Instantiate (Resources.Load ("speech2text")) as GameObject;
-		//}
+		if(false)
+		{
+			Destroy (speech2text);
+			text2speech = Instantiate(Resources.Load("text2speech")) as GameObject; 
+			text2speech.GetComponent<text2speech> ().speech = "I am Feeling good. Thanks";
+			speech2text = Instantiate (Resources.Load ("speech2text")) as GameObject;
+		}
 	}
 }

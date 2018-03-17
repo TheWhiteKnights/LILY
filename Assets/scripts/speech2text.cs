@@ -31,7 +31,7 @@ public class speech2text : MonoBehaviour
 	private string _url ="https://stream.watsonplatform.net/speech-to-text/api";
     
     public Text ResultsField;
-
+	public string speechtext;
     private int _recordingRoutine = 0;
     private string _microphoneID = null;
     private AudioClip _recording = null;
@@ -177,6 +177,7 @@ public class speech2text : MonoBehaviour
 					if (res.final) {
 						Log.Debug ("ExampleStreaming.OnRecognize()", text);
 						ResultsField.text = text;
+						speechtext = text;
 					}
                 }
 
