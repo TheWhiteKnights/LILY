@@ -9,20 +9,25 @@ public class controller : MonoBehaviour {
 	GameObject speech2text;
 	bool text;
 	bool speech;
+	public bool speechbutton;
 	void Start()
 	{
 		speech = false;
+		speechbutton = false;
 		text2speech = Instantiate(Resources.Load("text2speech")) as GameObject; 
 		text = true;
-		text2speech.GetComponent<text2speech> ().speech = "hello ebin. how are you feeling today";
+		text2speech.GetComponent<text2speech> ().speech = "Welcome";
+	}
+	void createspeech()
+	{
+		speech2text = Instantiate (Resources.Load ("speech2text")) as GameObject;
+		speech2text.GetComponent<speech2text> ().ResultsField = ui;
 	}
 	void Update()
-	{
+	{	
 		if (text) {
 			if (text2speech.GetComponent<text2speech> ().ended) {
 				Destroy (text2speech);
-				speech2text = Instantiate (Resources.Load ("speech2text")) as GameObject;
-				speech2text.GetComponent<speech2text> ().ResultsField = ui;
 				speech = true;
 				text = false;
 			}
@@ -30,6 +35,10 @@ public class controller : MonoBehaviour {
 		}
 		if(speech)
 		{
+			if (speechbutton) {
+				createspeech ();
+				speechbutton = false;
+			}
 			if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains ("how are you")) {
 				Destroy (speech2text);
 				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
@@ -71,6 +80,9 @@ public class controller : MonoBehaviour {
 				text = true;
 				speech = false;
 				text2speech.GetComponent<text2speech> ().speech = "Why, thank you";
+			}
+			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("good bye")){
+				Application.Quit ();
 			}
 			return;
 		}
