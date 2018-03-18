@@ -6,17 +6,31 @@ using UnityEngine.UI;
 public class controller : MonoBehaviour {
 	GameObject text2speech;
 	public Text ui;
+	public Animator lily;
 	GameObject speech2text;
 	bool text;
 	bool speech;
+	public GameObject marker;
 	public bool speechbutton;
 	void Start()
 	{
 		speech = false;
 		speechbutton = false;
+		text = false;
+	}
+	IEnumerator wait(float time)
+	{
+		yield return new WaitForSeconds(time);
+	}
+	public void init()
+	{
+		speech = false;
+		speechbutton = false;
 		text2speech = Instantiate(Resources.Load("text2speech")) as GameObject; 
 		text = true;
-		text2speech.GetComponent<text2speech> ().speech = "Welcome";
+		text2speech.GetComponent<text2speech> ().speech = "Welcome. Iam Lily.";
+		lily.SetInteger ("state", 1);
+		wait (3);
 	}
 	void createspeech()
 	{
@@ -72,7 +86,7 @@ public class controller : MonoBehaviour {
 				text2speech = Instantiate (Resources.Load ("text2speech")) as GameObject;
 				text = true;
 				speech = false;
-				text2speech.GetComponent<text2speech> ().speech = "Why, thank you";
+				text2speech.GetComponent<text2speech> ().speech = "gee, thanks";
 			}
 			else if (speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("who") && speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("boss")||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("is") ||speech2text.GetComponent<speech2text> ().speechtext.ToLower ().Contains("nice")){
 				Destroy (speech2text);
